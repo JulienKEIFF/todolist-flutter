@@ -24,7 +24,6 @@ class _UpdatePageState extends State<UpdatePage> {
   }
 
   void changeTodoTermined(bool value) {
-    print('change');
     _isDone = !_isDone;
     setState(() {});
   }
@@ -93,11 +92,19 @@ class _UpdatePageState extends State<UpdatePage> {
                       ],
                     ),
                     const Spacer(),
-                    ElevatedButton(
-                        onPressed: updateTodo,
-                        child: const Text('Mettre à jour')),
-                    ElevatedButton(
-                        onPressed: removeTodo, child: const Text('Suprimer'))
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                            onPressed: removeTodo,
+                            style:
+                                ElevatedButton.styleFrom(primary: Colors.red),
+                            child: const Text('Suprimer')),
+                        ElevatedButton(
+                            onPressed: updateTodo,
+                            child: const Text('Mettre à jour')),
+                      ],
+                    )
                   ],
                 ),
               ),

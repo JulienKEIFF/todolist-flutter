@@ -21,14 +21,31 @@ class Item extends StatelessWidget {
 
   openInfos(context) {
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(todoItem.title),
-          content: Text(todoItem.description),
-        );
-      },
-    );
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(todoItem.title),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(todoItem.description),
+                Row(
+                  children: [
+                    const Text("Statut de la tâche :    "),
+                    Icon(
+                        todoItem.isDone
+                            ? Icons.done_rounded
+                            : Icons.info_outline,
+                        size: 25,
+                        color: todoItem.isDone ? Colors.green : Colors.red)
+                  ],
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   @override
