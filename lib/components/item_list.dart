@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../repository/database_helper.dart';
 import 'package:eventify/eventify.dart';
-
-import 'item.dart';
+import 'package:tp_flutter/repository/database_helper.dart';
+import 'package:tp_flutter/components/item.dart';
 
 class ItemList extends StatefulWidget {
   const ItemList({Key? key}) : super(key: key);

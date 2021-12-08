@@ -19,6 +19,18 @@ class Item extends StatelessWidget {
     );
   }
 
+  openInfos(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(todoItem.title),
+          content: Text(todoItem.description),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -26,16 +38,26 @@ class Item extends StatelessWidget {
       elevation: 5,
       color: todoItem.isDone ? Colors.green : Colors.white,
       child: InkWell(
-        onTap: () => openItemPage(context),
+        onTap: () => openInfos(context),
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(todoItem.title, style: const TextStyle(fontSize: 17)),
+              Text(todoItem.title,
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: todoItem.isDone ? Colors.white : Colors.black)),
               const Spacer(),
-              Checkbox(value: todoItem.isDone, onChanged: null),
+              IconButton(
+                icon: Icon(
+                  Icons.edit,
+                  color: todoItem.isDone ? Colors.white : Colors.grey[800],
+                  size: 20,
+                ),
+                onPressed: () => openItemPage(context),
+              ),
             ],
           ),
         ),

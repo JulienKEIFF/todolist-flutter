@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../repository/database_helper.dart';
+import 'package:tp_flutter/repository/database_helper.dart';
 
 class NewItemForm extends StatefulWidget {
   const NewItemForm({Key? key}) : super(key: key);

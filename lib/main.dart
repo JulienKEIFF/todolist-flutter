@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tp_flutter/page/add_page.dart';
-
-import 'repository/database_helper.dart';
-import 'components/item_list.dart';
+import 'package:tp_flutter/repository/database_helper.dart';
+import 'package:tp_flutter/components/item_list.dart';
 
 void main() async {
   await DatabaseHelper().initDatabase();

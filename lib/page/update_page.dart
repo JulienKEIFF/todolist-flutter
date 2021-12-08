@@ -11,11 +11,20 @@ class UpdatePage extends StatefulWidget {
 }
 
 class _UpdatePageState extends State<UpdatePage> {
+  bool firstBuild = true;
   String _title = "";
   String _description = "";
   bool _isDone = false;
 
+  void initedBool() {
+    if (firstBuild) {
+      _isDone = widget.todoItem.isDone;
+      firstBuild = false;
+    }
+  }
+
   void changeTodoTermined(bool value) {
+    print('change');
     _isDone = !_isDone;
     setState(() {});
   }
@@ -48,6 +57,7 @@ class _UpdatePageState extends State<UpdatePage> {
 
   @override
   Widget build(BuildContext context) {
+    initedBool();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.todoItem.title),

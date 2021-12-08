@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/add_form.dart';
+import 'package:tp_flutter/components/add_form.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({Key? key}) : super(key: key);

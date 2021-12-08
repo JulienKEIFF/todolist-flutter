@@ -1,10 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/widgets.dart';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
 import 'package:eventify/eventify.dart';
 
 class DatabaseHelper {
@@ -15,6 +12,8 @@ class DatabaseHelper {
   String columnTitle = 'title';
   String columnDescription = 'description';
   String columnDone = 'isDone';
+
+  late TodoItem itemToDisplay;
 
   EventEmitter emmiter = EventEmitter();
 
@@ -60,6 +59,11 @@ class DatabaseHelper {
     );
 
     emmiter.emit('refresh', null);
+  }
+
+  setTodoToDisplay(TodoItem item) {
+    itemToDisplay = item;
+    emmiter.emit('display_detail', null);
   }
 
   // Récupération de toutes les tâches
